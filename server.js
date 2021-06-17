@@ -14,14 +14,14 @@ const database = mysql.createConnection({
   database: 'thinking_routines',
 });
 
-// app.get('/api/insert', (request, response) => {
-//   const sqlInsert = "INSERT INTO used_to_think (content) VALUES ('Cats hate water.');";
-//   database.query(sqlInsert, (error, result) => {
-//     if (error) throw error;
-//     console.log(result);
-//     response.send('inserted');
-//   });
-// });
+app.post('/api/insert', (request, response) => {
+  const content = request.body.content;
+  const sqlInsert = 'INSERT INTO used_to_think (content) VALUES (?)';
+  database.query(sqlInsert, content, (error, result) => {
+    if (error) throw error;
+    console.log(result);
+  });
+});
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
