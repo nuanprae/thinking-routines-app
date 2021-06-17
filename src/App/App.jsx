@@ -20,7 +20,7 @@ function App() {
       </header>
       <section>
         <h3>I used to think...</h3>
-        <Form content={content} setContent={setContent} />
+        <Form content={content} setContent={setContent} list={list} setList={setList} />
       </section>
       <section>
         {list?.map((item) => {

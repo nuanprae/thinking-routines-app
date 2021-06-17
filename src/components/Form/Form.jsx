@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function Form({ content, setContent }) {
+export default function Form({ content, setContent, list, setList }) {
   const handleContent = (event) => {
     setContent(event.target.value);
   };
@@ -9,6 +9,7 @@ export default function Form({ content, setContent }) {
     event.preventDefault();
     axios.post('http://localhost:8000/api/insert', { content: content });
     setContent('');
+    setList([...list, { content: content }]);
   };
 
   return (
