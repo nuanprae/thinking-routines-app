@@ -8,9 +8,15 @@ function App() {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/get/used-to-think').then((response) => {
-      setList(response.data);
-    });
+    const fetchData = async () => {
+      try {
+        const apiCallResponse = await axios.get('http://localhost:8000/api/get/used-to-think');
+        setList(apiCallResponse.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
