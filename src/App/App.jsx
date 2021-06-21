@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+
 import Form from '../components/Form/Form';
+import List from '../components/List/List';
 import './App.css';
 
 function App() {
@@ -29,11 +31,7 @@ function App() {
         <Form content={content} setContent={setContent} list={list} setList={setList} />
       </section>
       <section>
-        <ul>
-          {list?.map((item) => {
-            return <li key={item.id}>{item.content}</li>;
-          })}
-        </ul>
+        <List list={list} />
       </section>
     </div>
   );
