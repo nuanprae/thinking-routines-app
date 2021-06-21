@@ -9,7 +9,17 @@ export default function Form({ content, setContent, list, setList }) {
     event.preventDefault();
     axios.post('http://localhost:8000/api/insert', { content: content });
     setContent('');
-    setList([...list, { content: content }]);
+    const fetchData = async () => {
+      try {
+        const apiCallResponse = await axios.get(
+          'http://localhost:8000/api/get/used-to-think/recently-added-item',
+        );
+        setList([...list, apiCallResponse.data[0]]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   };
 
   return (

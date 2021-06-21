@@ -29,13 +29,11 @@ function App() {
         <Form content={content} setContent={setContent} list={list} setList={setList} />
       </section>
       <section>
-        {list?.map((item) => {
-          return (
-            <ul>
-              <li key={`item-${item.id}`}>{item.content}</li>
-            </ul>
-          );
-        })}
+        <ul>
+          {list?.map((item) => {
+            return <li key={item.id}>{item.content}</li>;
+          })}
+        </ul>
       </section>
     </div>
   );

@@ -23,6 +23,15 @@ app.get('/api/get/used-to-think', (request, response) => {
   });
 });
 
+app.get('/api/get/used-to-think/recently-added-item', (request, response) => {
+  const sqlSelectLastRow = 'SELECT id, content FROM used_to_think ORDER BY id DESC LIMIT 1';
+  database.query(sqlSelectLastRow, (error, result) => {
+    if (error) throw error;
+    console.log(result);
+    response.send(result);
+  });
+});
+
 app.post('/api/insert', (request, response) => {
   const content = request.body.content;
   const sqlInsert = 'INSERT INTO used_to_think (content) VALUES (?)';
