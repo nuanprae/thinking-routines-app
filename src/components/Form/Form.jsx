@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import Button from '../Button/Button';
+
 import './form.css';
 
 export default function Form({ content, setContent, list, setList }) {
@@ -34,9 +36,7 @@ export default function Form({ content, setContent, list, setList }) {
         type="text"
         value={content}
       ></textarea>
-      <button className="form__button" onClick={handleSubmit} type="submit">
-        +
-      </button>
+      <Button icon="+" onClick={handleSubmit} />
     </form>
   );
 }
