@@ -19,6 +19,7 @@ export default function Form({ content, setContent, list, setList }) {
           'http://localhost:8000/api/get/used-to-think/recently-added-item',
         );
         setList([...list, apiCallResponse.data[0]]);
+        console.log(list);
       } catch (error) {
         console.log(error);
       }

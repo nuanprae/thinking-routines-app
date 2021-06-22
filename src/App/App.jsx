@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import Form from '../components/Form/Form';
 import List from '../components/List/List';
+
 import './app.css';
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         <section className="app__left-column">
           <h3>I used to think...</h3>
           <Form content={content} setContent={setContent} list={list} setList={setList} />
-          <List list={list} />
+          <List list={list} setList={setList} />
         </section>
         <section className="app__right-column">
           <h3>Now I think...</h3>
