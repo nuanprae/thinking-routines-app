@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import './form.css';
+
 export default function Form({ content, setContent, list, setList }) {
   const handleContent = (event) => {
     setContent(event.target.value);
@@ -23,16 +25,17 @@ export default function Form({ content, setContent, list, setList }) {
   };
 
   return (
-    <form>
-      <input
+    <form className="form">
+      <textarea
+        className="form__input-text"
         name="content"
         onChange={handleContent}
         placeholder="Add your thinking"
         type="text"
         value={content}
-      ></input>
-      <button onClick={handleSubmit} type="submit">
-        Add
+      ></textarea>
+      <button className="form__button" onClick={handleSubmit} type="submit">
+        +
       </button>
     </form>
   );

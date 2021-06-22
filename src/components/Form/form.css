@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+}
+.form__button {
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+}
+.form__button:hover {
+  background-color: aqua;
+}
+.form__input-text {
+  height: 10vh;
+  width: 100%;
+}

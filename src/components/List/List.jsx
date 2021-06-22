@@ -1,8 +1,14 @@
+import './list.css';
+
 export default function List({ list }) {
   return (
-    <ul>
+    <ul className="list__list">
       {list?.map((item) => {
-        return <li key={item.id}>{item.content}</li>;
+        return (
+          <li className="list__item" key={item.id}>
+            {item.content}
+          </li>
+        );
       })}
     </ul>
   );

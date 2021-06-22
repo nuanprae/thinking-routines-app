@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import Form from '../components/Form/Form';
 import List from '../components/List/List';
-import './App.css';
+import './app.css';
 
 function App() {
   const [content, setContent] = useState('');
@@ -22,17 +22,21 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header>
-        <h1>Thinking Routines</h1>
+    <div className="app">
+      <header className="app__header">
+        <h2>Thinking Routines</h2>
+        <h3>I Used To Think... Now I Think...</h3>
       </header>
-      <section>
-        <h3>I used to think...</h3>
-        <Form content={content} setContent={setContent} list={list} setList={setList} />
-      </section>
-      <section>
-        <List list={list} />
-      </section>
+      <main className="app__main">
+        <section className="app__left-column">
+          <h3>I used to think...</h3>
+          <Form content={content} setContent={setContent} list={list} setList={setList} />
+          <List list={list} />
+        </section>
+        <section className="app__right-column">
+          <h3>Now I think...</h3>
+        </section>
+      </main>
     </div>
   );
 }
