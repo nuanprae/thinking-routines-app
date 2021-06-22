@@ -1,14 +1,12 @@
+import Card from '../Card/Card';
+
 import './list.css';
 
 export default function List({ list }) {
   return (
     <ul className="list__list">
       {list?.map((item) => {
-        return (
-          <li className="list__item" key={item.id}>
-            {item.content}
-          </li>
-        );
+        return <Card item={item} />;
       })}
     </ul>
   );
