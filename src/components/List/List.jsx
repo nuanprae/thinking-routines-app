@@ -6,7 +6,7 @@ export default function List({ list }) {
   return (
     <ul className="list__list">
       {list?.map((item) => {
-        return <Card item={item} />;
+        return <Card item={item} key={item.id} />;
       })}
     </ul>
   );
