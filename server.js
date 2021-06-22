@@ -34,7 +34,7 @@ app.get('/api/get/used-to-think/recently-added-item', (request, response) => {
 
 app.post('/api/insert', (request, response) => {
   const content = request.body.content;
-  const sqlInsert = 'INSERT INTO used_to_think (content) VALUES ?';
+  const sqlInsert = 'INSERT INTO used_to_think (content) VALUES (?)';
   database.query(sqlInsert, content, (error, result) => {
     if (error) throw error;
     console.log(result);

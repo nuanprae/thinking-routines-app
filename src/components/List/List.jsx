@@ -7,6 +7,7 @@ import './list.css';
 export default function List({ list, setList }) {
   const handleDelete = (id) => {
     axios.delete(`http://localhost:8000/api/delete/used-to-think/${id}`);
+    setList(list.filter((item) => item.id !== id));
   };
 
   return (
