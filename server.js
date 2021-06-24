@@ -39,6 +39,7 @@ app.delete('/api/delete/used-to-think/:id', (request, response) => {
   database.query(sqlDelete, id, (error, result) => {
     if (error) throw error;
     console.log(result);
+    response.send(result);
   });
 });
 
