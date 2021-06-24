@@ -1,18 +1,14 @@
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 import Button from '../Button/Button';
 
 import './form.css';
 
 export default function Form({ textInput, setTextInput, list, setList }) {
-  const handleTextInput = (event) => {
-    setTextInput(event.target.value);
-  };
+  const [numberOfItems, setNumberOfItems] = useState(null);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.post('http://localhost:8000/api/insert', { content: textInput });
-    setTextInput('');
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const apiCallResponse = await axios.get('http://localhost:8000/api/get/used-to-think');
@@ -22,6 +18,18 @@ export default function Form({ textInput, setTextInput, list, setList }) {
       }
     };
     fetchData();
+  }, [numberOfItems, setList]);
+
+  const handleTextInput = (event) => {
+    setTextInput(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post('http://localhost:8000/api/insert', { content: textInput });
+    setTextInput('');
+    setNumberOfItems(list.length);
+    console.log(list.length);
   };
 
   return (
