@@ -7,7 +7,7 @@ import List from '../components/List/List';
 import './app.css';
 
 function App() {
-  const [content, setContent] = useState('');
+  const [textInput, setTextInput] = useState('');
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
       <main className="app__main">
         <section className="app__left-column">
           <h3>I used to think...</h3>
-          <Form content={content} setContent={setContent} list={list} setList={setList} />
+          <Form textInput={textInput} setTextInput={setTextInput} list={list} setList={setList} />
           <List list={list} setList={setList} />
         </section>
         <section className="app__right-column">

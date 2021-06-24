@@ -4,15 +4,15 @@ import Button from '../Button/Button';
 
 import './form.css';
 
-export default function Form({ content, setContent, list, setList }) {
-  const handleContent = (event) => {
-    setContent(event.target.value);
+export default function Form({ textInput, setTextInput, list, setList }) {
+  const handleTextInput = (event) => {
+    setTextInput(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/insert', { content: content });
-    setContent('');
+    axios.post('http://localhost:8000/api/insert', { content: textInput });
+    setTextInput('');
     const fetchData = async () => {
       try {
         const apiCallResponse = await axios.get('http://localhost:8000/api/get/used-to-think');
@@ -29,10 +29,10 @@ export default function Form({ content, setContent, list, setList }) {
       <textarea
         className="form__input-text"
         name="content"
-        onChange={handleContent}
+        onChange={handleTextInput}
         placeholder="Add your thinking"
         type="text"
-        value={content}
+        value={textInput}
       ></textarea>
       <Button icon="+" onClick={handleSubmit} />
     </form>
