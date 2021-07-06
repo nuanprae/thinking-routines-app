@@ -6,7 +6,7 @@ export default function Card({ item, onClick }) {
   return (
     <li className="card">
       {item.content}
-      <Button icon="-" onClick={onClick} />
+      <Button className="card__button" icon="-" onClick={onClick} />
     </li>
   );
 }

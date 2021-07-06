@@ -1,8 +1,17 @@
 .card {
-  background-color: #a4dce8;
+  background-color: #7398ee;
   box-shadow: 2px 5px 5px #d3d3d3;
+  color: #fff;
+  flex-direction: column;
   height: 150px;
   overflow-y: scroll;
+  position: relative;
   padding: 0.5em;
   width: 150px;
+}
+.card__button {
+  bottom: 0;
+  margin: 0.5em;
+  position: absolute;
+  right: 0;
 }

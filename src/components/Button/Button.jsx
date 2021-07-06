@@ -1,8 +1,10 @@
+import classNamesHelper from 'classnames';
+
 import './button.css';
 
-export default function Button({ onClick, icon }) {
+export default function Button({ className, onClick, icon }) {
   return (
-    <button className="button" onClick={onClick} type="submit">
+    <button className={classNamesHelper('button', className)} onClick={onClick} type="submit">
       {icon}
     </button>
   );
