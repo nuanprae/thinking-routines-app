@@ -5,20 +5,20 @@ import Card from '../Card/Card';
 
 import './list.css';
 
-export default function List({ list, setList }) {
+export default function List({ apiEndPointToFetchData, list, setList }) {
   const [deletedItem, setDeletedItem] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiCallResponse = await axios.get('http://localhost:8000/api/get/used-to-think');
+        const apiCallResponse = await axios.get(apiEndPointToFetchData);
         setList(apiCallResponse.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [deletedItem, setList]);
+  }, [apiEndPointToFetchData, deletedItem, setList]);
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:8000/api/delete/used-to-think/${id}`);

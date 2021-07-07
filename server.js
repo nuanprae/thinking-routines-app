@@ -23,7 +23,7 @@ app.get('/api/get/used-to-think', (request, response) => {
   });
 });
 
-app.get('api/get/now-i-think', (request, response) => {
+app.get('/api/get/now-i-think', (request, response) => {
   const sqlSelect = 'SELECT id, content FROM now_i_think';
   database.query(sqlSelect, (error, result) => {
     if (error) throw error;
@@ -32,9 +32,19 @@ app.get('api/get/now-i-think', (request, response) => {
   });
 });
 
-app.post('/api/insert', (request, response) => {
+app.post('/api/insert/used-to-think', (request, response) => {
   const content = request.body.content;
   const sqlInsert = 'INSERT INTO used_to_think (content) VALUES (?)';
+  database.query(sqlInsert, content, (error, result) => {
+    if (error) throw error;
+    console.log(result);
+    response.send(result);
+  });
+});
+
+app.post('/api/insert/now-i-think', (request, response) => {
+  const content = request.body.content;
+  const sqlInsert = 'INSERT INTO now_i_think (content) VALUES (?)';
   database.query(sqlInsert, content, (error, result) => {
     if (error) throw error;
     console.log(result);

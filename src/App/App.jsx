@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Form from '../components/Form/Form';
 import List from '../components/List/List';
@@ -9,20 +8,9 @@ import './app.css';
 function App() {
   const [textInput, setTextInput] = useState({ usedToThink: '', nowIThink: '' });
   const { usedToThink, nowIThink } = textInput;
-  const [list, setList] = useState([]);
+  const [usedToThinkList, setUsedToThinkList] = useState([]);
+  const [nowIThinkList, setNowIThinkList] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiCallResponse = await axios.get('http://localhost:8000/api/get/used-to-think');
-        setList(apiCallResponse.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log(textInput);
   return (
     <div className="app">
       <header className="app__header">
@@ -33,17 +21,36 @@ function App() {
         <section className="app__left-column">
           <h3>I used to think...</h3>
           <Form
+            apiEndPointToFetchData="http://localhost:8000/api/get/used-to-think"
+            apiEndPointToInsertData="http://localhost:8000/api/insert/used-to-think"
+            list={usedToThinkList}
+            setList={setUsedToThinkList}
+            name="usedToThink"
             textInput={usedToThink}
             setTextInput={setTextInput}
-            list={list}
-            setList={setList}
-            name="usedToThink"
           />
-          <List list={list} setList={setList} />
+          <List
+            apiEndPointToFetchData="http://localhost:8000/api/get/used-to-think"
+            list={usedToThinkList}
+            setList={setUsedToThinkList}
+          />
         </section>
         <section className="app__right-column">
           <h3>Now I think...</h3>
-          <Form textInput={nowIThink} setTextInput={setTextInput} name="nowIThink" />
+          <Form
+            apiEndPointToFetchData="http://localhost:8000/api/get/now-i-think"
+            apiEndPointToInsertData="http://localhost:8000/api/insert/now-i-think"
+            list={nowIThinkList}
+            setList={setNowIThinkList}
+            name="nowIThink"
+            textInput={nowIThink}
+            setTextInput={setTextInput}
+          />
+          <List
+            apiEndPointToFetchData="http://localhost:8000/api/get/now-i-think"
+            list={nowIThinkList}
+            setList={setNowIThinkList}
+          />
         </section>
       </main>
     </div>
