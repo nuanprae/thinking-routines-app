@@ -7,7 +7,8 @@ import List from '../components/List/List';
 import './app.css';
 
 function App() {
-  const [textInput, setTextInput] = useState('');
+  const [textInput, setTextInput] = useState({ usedToThink: '', nowIThink: '' });
+  const { usedToThink, nowIThink } = textInput;
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function App() {
     };
     fetchData();
   }, []);
-
+  console.log(textInput);
   return (
     <div className="app">
       <header className="app__header">
@@ -31,11 +32,18 @@ function App() {
       <main className="app__main">
         <section className="app__left-column">
           <h3>I used to think...</h3>
-          <Form textInput={textInput} setTextInput={setTextInput} list={list} setList={setList} />
+          <Form
+            textInput={usedToThink}
+            setTextInput={setTextInput}
+            list={list}
+            setList={setList}
+            name="usedToThink"
+          />
           <List list={list} setList={setList} />
         </section>
         <section className="app__right-column">
           <h3>Now I think...</h3>
+          <Form textInput={nowIThink} setTextInput={setTextInput} name="nowIThink" />
         </section>
       </main>
     </div>

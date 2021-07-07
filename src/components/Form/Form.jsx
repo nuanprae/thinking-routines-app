@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 
 import './form.css';
 
-export default function Form({ textInput, setTextInput, list, setList }) {
+export default function Form({ list, setList, name, textInput, setTextInput }) {
   const [numberOfItems, setNumberOfItems] = useState(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Form({ textInput, setTextInput, list, setList }) {
   }, [numberOfItems, setList]);
 
   const handleTextInput = (event) => {
-    setTextInput(event.target.value);
+    setTextInput({ [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
@@ -36,7 +36,7 @@ export default function Form({ textInput, setTextInput, list, setList }) {
     <form className="form">
       <textarea
         className="form__input-text"
-        name="content"
+        name={name}
         onChange={handleTextInput}
         placeholder="Add your thinking"
         type="text"
