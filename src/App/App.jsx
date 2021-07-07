@@ -30,6 +30,7 @@ function App() {
             setTextInput={setTextInput}
           />
           <List
+            apiEndPointToDeleteData="http://localhost:8000/api/delete/used-to-think/"
             apiEndPointToFetchData="http://localhost:8000/api/get/used-to-think"
             list={usedToThinkList}
             setList={setUsedToThinkList}
@@ -47,6 +48,7 @@ function App() {
             setTextInput={setTextInput}
           />
           <List
+            apiEndPointToDeleteData="http://localhost:8000/api/delete/now-to-think/"
             apiEndPointToFetchData="http://localhost:8000/api/get/now-i-think"
             list={nowIThinkList}
             setList={setNowIThinkList}
