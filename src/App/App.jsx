@@ -8,8 +8,8 @@ import './app.css';
 function App() {
   const [textInput, setTextInput] = useState({ usedToThink: '', nowIThink: '' });
   const { usedToThink, nowIThink } = textInput;
-  const [usedToThinkList, setUsedToThinkList] = useState([]);
-  const [nowIThinkList, setNowIThinkList] = useState([]);
+  const [usedToThinkList, setUsedToThinkList] = useState(null);
+  const [nowIThinkList, setNowIThinkList] = useState(null);
 
   return (
     <div className="app">
