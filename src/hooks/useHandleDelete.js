@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function useHandleDelete(apiEndPointToDelete, apiEndPointToFetchData, setList) {
+export default function useHandleDelete(apiEndPointToDeleteData, apiEndPointToFetchData, setList) {
   const [deletedItem, setDeletedItem] = useState(null);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function useHandleDelete(apiEndPointToDelete, apiEndPointToFetchD
   }, [apiEndPointToFetchData, deletedItem, setList]);
 
   const handleDelete = (id) => {
-    axios.delete(`${apiEndPointToDelete}${id}`);
+    axios.delete(`${apiEndPointToDeleteData}${id}`);
     setDeletedItem(id);
   };
   return { handleDelete };

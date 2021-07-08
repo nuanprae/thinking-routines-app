@@ -48,7 +48,7 @@ function App() {
             setTextInput={setTextInput}
           />
           <List
-            apiEndPointToDeleteData="http://localhost:8000/api/delete/now-to-think/"
+            apiEndPointToDeleteData="http://localhost:8000/api/delete/now-i-think/"
             apiEndPointToFetchData="http://localhost:8000/api/get/now-i-think"
             list={nowIThinkList}
             setList={setNowIThinkList}

@@ -64,7 +64,7 @@ app.delete('/api/delete/used-to-think/:id', (request, response) => {
 
 app.delete('/api/delete/now-i-think/:id', (request, response) => {
   const id = request.params.id;
-  const sqlDelete = 'DELETE FROM now-i-think WHERE id = ?';
+  const sqlDelete = 'DELETE FROM now_i_think WHERE id = ?';
   database.query(sqlDelete, id, (error, result) => {
     if (error) throw error;
     console.log(result);

@@ -1,5 +1,6 @@
 .app {
   background-color: #d4e4fd;
+  height: 100vh;
   padding: 2em;
 }
 .app__header {
@@ -32,5 +33,6 @@
   display: grid;
   gap: 2em;
   grid-template-columns: 1fr 1fr;
+  height: 80vh;
   padding: 1em;
 }
