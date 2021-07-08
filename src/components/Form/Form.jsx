@@ -1,8 +1,8 @@
-import useForm from '../../hooks/useForm';
-
 import Button from '../Button/Button';
 
 import './form.css';
+
+import useForm from '../../hooks/useForm';
 
 export default function Form({
   apiEndPointToFetchData,

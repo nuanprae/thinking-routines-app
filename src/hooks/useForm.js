@@ -30,7 +30,7 @@ export default function useForm(
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post(apiEndPointToInsertData, { content: textInput });
-    setTextInput('');
+    setTextInput({ usedToThink: '', nowIThink: '' });
     setNumberOfItems(list.length);
     console.log(list.length);
   };
