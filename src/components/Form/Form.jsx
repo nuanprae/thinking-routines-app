@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import Button from '../Button/Button';
 
 import './form.css';
@@ -36,3 +38,14 @@ export default function Form({
     </form>
   );
 }
+
+Form.propTypes = {
+  apiEndPointToFetchData: PropTypes.string,
+  apiEndPointToInsertData: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  list: PropTypes.array,
+  name: PropTypes.string,
+  setList: PropTypes.func,
+  setTextInput: PropTypes.func,
+  textInput: PropTypes.string,
+};

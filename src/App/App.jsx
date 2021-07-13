@@ -32,6 +32,7 @@ function App() {
           <List
             apiEndPointToDeleteData="http://localhost:8000/api/delete/used-to-think/"
             apiEndPointToFetchData="http://localhost:8000/api/get/used-to-think"
+            backgroundColor="#7398ee"
             list={usedToThinkList}
             setList={setUsedToThinkList}
           />
@@ -50,6 +51,7 @@ function App() {
           <List
             apiEndPointToDeleteData="http://localhost:8000/api/delete/now-i-think/"
             apiEndPointToFetchData="http://localhost:8000/api/get/now-i-think"
+            backgroundColor="#5AC594"
             list={nowIThinkList}
             setList={setNowIThinkList}
           />
